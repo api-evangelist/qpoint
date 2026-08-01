@@ -1,8 +1,14 @@
 aid: qpoint
 name: Qpoint
-description: Qpoint is a company surfaced as a portfolio company of bloomberg-beta, uncork-capital and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Qpoint is a security and observability company that uses eBPF to give teams full visibility and
+  control over egress and service-to-service traffic without proxies, sidecars, or code changes. Its
+  product line includes qtap (a lightweight eBPF sensor that captures pre-encrypted HTTPS traffic and
+  the originating process context), Qplane (a cloud-managed control plane and dashboard), qscan (an
+  artifact/PII scanner), and qcontrol (agentic-AI security controls, in beta). Qpoint exposes its
+  telemetry through a Connect RPC / gRPC data plane, a hosted Model Context Protocol (MCP) server for
+  AI agents, plugin SDKs in Rust, C, and Zig, and OpenTelemetry/Prometheus integrations. Backed by
+  Bloomberg Beta and Uncork Capital.
 url: https://raw.githubusercontent.com/api-evangelist/qpoint/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +17,48 @@ x-backed-by:
 - uncork-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://www.qpoint.io/favicon.svg
 tags:
 - Company
-apis: []
+- Security
+- Observability
+- eBPF
+- Network Traffic
+- Egress Control
+- Agentic AI
+- MCP
+- gRPC
+apis:
+- name: Qpoint Data Plane (Connect/gRPC)
+  description: >-
+    Connect RPC / gRPC services backing Qpoint's control plane: an event store service and the qscan
+    scheduler service, with shared protobuf types for connections, requests, issues, PII, and tags.
+  humanURL: https://docs.qpoint.io/
+  baseURL: https://api.qpoint.io
+  properties:
+  - type: Protobuf
+    name: EventStore v1 (proto)
+    url: grpc/qpoint-eventstore-v1-main.proto
+  - type: Protobuf
+    name: Qscan v1 Scheduler (proto)
+    url: grpc/qpoint-qscan-v1-main.proto
+  - type: APIReference
+    url: https://docs.qpoint.io/appendix/qpoint-data-schema-reference.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +67,46 @@ maintainers:
 common:
 - type: Website
   url: https://www.qpoint.io/
+- type: DeveloperPortal
+  url: https://docs.qpoint.io/
+- type: Documentation
+  url: https://docs.qpoint.io/
+- type: GettingStarted
+  url: https://docs.qpoint.io/getting-started
+- type: Quickstart
+  url: https://docs.qpoint.io/guides/qtap-guides/getting-started/qtap-starter-configuration-stdout-only.md
+- type: GitHubOrganization
+  url: https://github.com/qpoint-io
+- type: Blog
+  url: https://www.qpoint.io/blog/
+- type: Pricing
+  url: https://www.qpoint.io/pricing/
+- type: SignUp
+  url: https://app.qpoint.io/
+- type: MCPServer
+  url: mcp/qpoint-mcp.yml
+- type: CLI
+  url: cli/qpoint-cli.yml
+- type: SDKs
+  url: packages/qpoint-packages.yml
+- type: Packages
+  url: packages/qpoint-packages.yml
+- type: Authentication
+  url: authentication/qpoint-authentication.yml
+- type: DomainSecurity
+  url: security/qpoint-domain-security.yml
+- type: Conformance
+  url: conformance/qpoint-conformance.yml
+- type: Compliance
+  url: https://docs.qpoint.io/security-and-compliance.md
+- type: Lifecycle
+  url: lifecycle/qpoint-lifecycle.yml
+- type: ChangeLog
+  url: changelog/qpoint-changelog.yml
+- type: LLMsTxt
+  url: llms/qpoint-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

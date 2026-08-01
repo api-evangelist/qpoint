@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qpoint.io/releases.md
+scheme: semver
+current_version: v0.6.2
+url: https://docs.qpoint.io/releases.md
+entries:
+- version: v0.6.2
+  date: '2025-01-08'
+  breaking: false
+  highlights: Performance update with enhanced security features and HTTP compression support; TLS monitoring, optimized middleware performance, user-configurable tagging.
+- version: v0.6.1
+  date: '2024-12-17'
+  breaking: false
+  highlights: Infrastructure enhancement focused on core networking capabilities and security updates.
+- version: v0.6.0
+  date: '2024-12-10'
+  breaking: false
+  highlights: Next-generation TLS implementation enabled by default.

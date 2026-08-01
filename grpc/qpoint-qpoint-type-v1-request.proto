@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+message Request {
+  string id = 1 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
+  string direction = 3 [(buf.validate.field).required = true];
+  string connection_id = 4 [(buf.validate.field).required = true];
+  string endpoint_id = 5;
+  string vendor_id = 6;
+  string url = 7;
+  string path = 8;
+  string method = 9;
+  uint32 status = 10;
+  uint64 duration = 11;
+  string content_type = 12;
+  string category = 13;
+  string agent = 14;
+  repeated string tags = 15;
+  uint64 bytes_received = 16;
+  uint64 bytes_sent = 17;
+
+  message AuthToken {
+    string mask = 1;
+    // hash is a 32-byte SHA-256 hash of the auth token.
+    string hash = 2;
+    string source = 3;
+    string type = 4;
+  }
+  AuthToken auth_token = 18;
+}

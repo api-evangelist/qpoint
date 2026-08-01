@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qpoint.io/getting-started/qtap/cli.md
+# Qpoint ships CLI binaries for its eBPF product line. qtap is the primary agent
+# (single-invocation, flag-configured). qplane, qscan, and qcontrol are companion binaries.
+binaries:
+- name: qtap
+  description: eBPF sensor that captures pre-encrypted egress traffic and originating process context.
+  invocation: qtap [flags]
+  docs: https://docs.qpoint.io/getting-started/qtap/cli.md
+  flags:
+  - {flag: "--config", description: "Config source: local YAML path or remote URL"}
+  - {flag: "--registration-token", description: "Token to register the agent with Qplane"}
+  - {flag: "--log-level", description: "Logging verbosity"}
+  - {flag: "--log-encoding", description: "Log output encoding"}
+  - {flag: "--tls-probes", description: "Enable/configure TLS monitoring probes"}
+  - {flag: "--tags", description: "Organizational tags applied to captured traffic"}
+  - {flag: "--enable-dev-tools", description: "Enable the DevTools interface"}
+  - {flag: "-v, --version", description: "Print version"}
+  - {flag: "-h, --help", description: "Print help"}
+- name: qplane
+  description: Cloud-managed control plane agent/CLI.
+  docs: https://docs.qpoint.io/getting-started/qplane.md
+- name: qscan
+  description: Scanner for artifacts / PII detection.
+  docs: https://docs.qpoint.io/getting-started/qscan.md
+- name: qcontrol
+  description: Agentic-AI security control binary (Beta) with a plugin SDK surface.
+  docs: https://docs.qpoint.io/appendix/qcontrol-beta.md
+install:
+  methods:
+  - {method: demo-script, command: "curl -s https://get.qpoint.io/demo | sudo sh"}
+  - {method: linux-binary, docs: https://docs.qpoint.io/getting-started/qtap/installation/linux-binary.md}
+  - {method: docker, docs: https://docs.qpoint.io/getting-started/qtap/installation/docker-container.md}
+  - {method: helm, docs: https://docs.qpoint.io/getting-started/qtap/installation/helm-chart.md}
+  - {method: kubernetes-manifest, docs: https://docs.qpoint.io/getting-started/qtap/installation/kubernetes-manifest.md}
+  install_script_repo: https://github.com/qpoint-io/get.qpoint.io

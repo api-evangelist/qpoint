@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qpoint.io/security-and-compliance.md
+# Cross-cutting standards Qpoint's products implement or interoperate with, plus the
+# compliance frameworks its Security & Compliance documentation addresses. Certifications
+# below are frameworks the product helps customers meet; Qpoint does not publish independent
+# third-party audit reports (no trust center found as of this pass).
+standards:
+- id: ebpf
+  conforms: true
+  evidence: qtap is an eBPF sensor; programs are verifier-checked before load
+- id: grpc
+  conforms: true
+  evidence: proto repo defines gRPC services (eventstore.v1, qscan.v1)
+- id: connect-rpc
+  conforms: true
+  evidence: proto repo generates Connect RPC service code via Buf
+- id: protobuf
+  conforms: true
+  evidence: Protocol Buffers definitions published at github.com/qpoint-io/proto
+- id: opentelemetry
+  conforms: true
+  evidence: documented OpenTelemetry export of qtap events and HTTP headers
+- id: prometheus
+  conforms: true
+  evidence: qtap exposes Prometheus metrics; Prometheus + Grafana monitoring guide
+- id: oauth2
+  conforms: true
+  evidence: Qplane app authenticates via Firebase Auth / bearer tokens; MCP uses Bearer tokens
+- id: model-context-protocol
+  conforms: true
+  evidence: hosted MCP server at pulse.qpoint.io/mcp/v1 (Qplane + DevTools)
+- id: rfc9457-problem-details
+  conforms: false
+- id: fhir-r4
+  conforms: false
+compliance_frameworks_addressed:
+- {framework: SOC 2, note: addressed in Security & Compliance docs as a supported control framework}
+- {framework: GDPR, note: sensitive payload data can be kept in-environment}
+- {framework: HIPAA, note: healthcare data handling guidance}
+- {framework: PCI DSS, note: payment data handling guidance}
+compliance_docs: https://docs.qpoint.io/security-and-compliance.md

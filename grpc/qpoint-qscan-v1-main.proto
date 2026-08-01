@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package qscan.v1;
+
+import "qpoint/type/v1/artifact.proto";
+import "qpoint/type/v1/pii.proto";
+
+service QscanSchedulerService {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+  rpc GetNextJob(GetNextJobRequest) returns (GetNextJobResponse) {}
+  rpc SubmitJobReport(SubmitJobReportRequest) returns (SubmitJobReportResponse) {}
+}
+
+message PingRequest {}
+
+message PingResponse {
+  string org_id = 1;
+  string service = 2;
+}
+
+message GetNextJobRequest {}
+
+message GetNextJobResponse {
+  string scan_id = 1;
+  string org_id = 2;
+  qpoint.type.v1.Artifact artifact = 3;
+}
+
+message SubmitJobReportRequest {
+  string scan_id = 1;
+  message Result {
+    oneof result {
+      SubmitJobReportSuccess success = 3;
+      SubmitJobReportError error = 4;
+    }
+  }
+  Result result = 2;
+}
+
+message SubmitJobReportSuccess {
+  qpoint.type.v1.Artifact artifact = 1;
+  repeated qpoint.type.v1.PIIEntity pii_entities = 2;
+}
+
+message SubmitJobReportError {
+  string error_text = 1;
+}
+
+message SubmitJobReportResponse {}

@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qpoint.io/releases.md
+versioning:
+  scheme: semver
+  current: v0.6.2
+  api_version: v1
+  api_version_note: protobuf/Connect services are namespaced eventstore.v1, qscan.v1
+  docs: https://docs.qpoint.io/releases.md
+releases: https://docs.qpoint.io/releases.md
+license:
+  model: dual
+  open_source: AGPL-3.0
+  commercial: true
+  docs: https://docs.qpoint.io/license.md
+status_page: null            # https://status.qpoint.io did not resolve as of this pass
+deprecation:
+  policy_url: null           # no published deprecation/sunset policy found
+  sunset_header: false
+deprecated_operations: []

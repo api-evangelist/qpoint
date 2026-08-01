@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qpoint.io/guides/qplane-guides/mcp-getting-started.md
+# No OpenAPI is published (Qpoint's control plane is gRPC/Connect + MCP), so this profile
+# is captured from the docs rather than derived from a spec.
+summary:
+  types: [http-bearer, apiKey, oauth2]
+  api_key_in: [header, cli-flag]
+  oauth2_flows: [firebase-auth]
+schemes:
+- name: mcp-bearer
+  type: http
+  scheme: bearer
+  in: header
+  parameter: Authorization
+  applies_to: MCP server (pulse.qpoint.io/mcp/v1)
+  docs: https://docs.qpoint.io/guides/qplane-guides/mcp-getting-started.md
+  note: Token minted in Qplane dashboard under Settings -> Deployments.
+- name: registration-token
+  type: apiKey
+  in: cli-flag
+  parameter: --registration-token
+  applies_to: qtap agent registration with Qplane
+  docs: https://docs.qpoint.io/getting-started/qtap/cli.md
+- name: qplane-app-auth
+  type: oauth2
+  scheme: firebase-auth
+  applies_to: Qplane web app (app.qpoint.io)
+  note: Firebase Authentication; supports SSO for dashboard access per Security & Compliance docs.

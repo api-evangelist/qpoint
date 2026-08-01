@@ -1,0 +1,88 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/qpoint-io
+# First-party client libraries / SDKs. Two generations are present:
+#  - Current eBPF product (qtap/qplane/qscan/qcontrol): qcontrol plugin SDKs + Connect-generated clients.
+#  - Legacy edge-router product: @qpoint/* npm scope.
+packages:
+- language: rust
+  registry: github
+  name: qcontrol-sdk-rust
+  url: https://github.com/qpoint-io/qcontrol-sdk-rust
+  install: git clone https://github.com/qpoint-io/qcontrol-sdk-rust
+  official: true
+  note: SDK for writing qcontrol plugins in Rust (Apache-2.0).
+- language: c
+  registry: github
+  name: qcontrol-sdk-c
+  url: https://github.com/qpoint-io/qcontrol-sdk-c
+  install: git clone https://github.com/qpoint-io/qcontrol-sdk-c
+  official: true
+  note: SDK for writing qcontrol plugins in C (Apache-2.0).
+- language: zig
+  registry: github
+  name: qcontrol-sdk-zig
+  url: https://github.com/qpoint-io/qcontrol-sdk-zig
+  install: git clone https://github.com/qpoint-io/qcontrol-sdk-zig
+  official: true
+  note: SDK for writing qcontrol plugins in Zig (Apache-2.0).
+- language: typescript
+  registry: github
+  name: qcontrol-wrapper-ts
+  url: https://github.com/qpoint-io/qcontrol-wrapper-ts
+  install: git clone https://github.com/qpoint-io/qcontrol-wrapper-ts
+  official: true
+  note: TypeScript template for wrapping qcontrol and forwarding enriched event streams.
+- language: go
+  registry: github
+  name: proto (gen/go Connect clients)
+  url: https://github.com/qpoint-io/proto
+  install: go get github.com/qpoint-io/proto
+  official: true
+  note: Connect RPC / protobuf-generated Go clients for eventstore.v1 and qscan.v1.
+- language: typescript
+  registry: github
+  name: proto (gen/ts Connect clients)
+  url: https://github.com/qpoint-io/proto
+  official: true
+  note: Connect RPC / protobuf-generated TypeScript clients for eventstore.v1 and qscan.v1.
+- language: python
+  registry: github
+  name: proto (gen/python clients)
+  url: https://github.com/qpoint-io/proto
+  official: true
+  note: protobuf-generated Python clients for eventstore.v1 and qscan.v1.
+- language: go
+  registry: github
+  name: rulekit
+  url: https://github.com/qpoint-io/rulekit
+  install: go get github.com/qpoint-io/rulekit
+  official: true
+  note: Expression-based rules engine used across Qpoint products (MIT).
+- language: yaml
+  registry: github
+  name: helm-charts
+  url: https://github.com/qpoint-io/helm-charts
+  official: true
+  note: Qpoint Helm charts for deploying qtap/qplane on Kubernetes (MIT).
+- language: javascript
+  registry: npm
+  name: "@qpoint/router"
+  url: https://www.npmjs.com/package/@qpoint/router
+  install: npm install @qpoint/router
+  official: true
+  note: Legacy edge-router framework (earlier Qpoint edge product).
+- language: javascript
+  registry: npm
+  name: "@qpoint/proxy"
+  url: https://www.npmjs.com/package/@qpoint/proxy
+  install: npm install @qpoint/proxy
+  official: true
+  note: Legacy edge-proxy adapter (earlier Qpoint edge product).
+- language: javascript
+  registry: npm
+  name: "@qpoint/dlp"
+  url: https://www.npmjs.com/package/@qpoint/dlp
+  install: npm install @qpoint/dlp
+  official: true
+  note: Legacy DLP adapter for detecting/scrubbing content (earlier Qpoint edge product).
