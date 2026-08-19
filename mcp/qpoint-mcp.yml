@@ -4,76 +4,108 @@ status: published
 source: https://docs.qpoint.io/guides/qplane-guides/mcp-getting-started.md
 server:
   name: qpoint
-  transport: http          # streamable HTTP
+  transport: http
   url: https://pulse.qpoint.io/mcp/v1
   auth:
     type: bearer
     header: Authorization
     note: Bearer token created in the Qplane dashboard under Settings -> Deployments (registration token).
 install:
-  claude_code: |
-    claude mcp add qpoint --transport http https://pulse.qpoint.io/mcp/v1 \
-      --header "Authorization: Bearer YOUR_TOKEN"
-  cursor: |
-    {
-      "mcpServers": {
-        "qpoint": {
-          "transport": "http",
-          "url": "https://pulse.qpoint.io/mcp/v1",
-          "headers": { "Authorization": "Bearer YOUR_TOKEN" }
-        }
-      }
-    }
+  claude_code: "claude mcp add qpoint --transport http https://pulse.qpoint.io/mcp/v1 \\\n  --header \"\
+    Authorization: Bearer YOUR_TOKEN\"\n"
+  cursor: "{\n  \"mcpServers\": {\n    \"qpoint\": {\n      \"transport\": \"http\",\n      \"url\": \"\
+    https://pulse.qpoint.io/mcp/v1\",\n      \"headers\": { \"Authorization\": \"Bearer YOUR_TOKEN\" }\n\
+    \    }\n  }\n}\n"
 docs:
 - https://docs.qpoint.io/getting-started/qplane/configuration/mcp.md
 - https://docs.qpoint.io/guides/qplane-guides/mcp-getting-started.md
 - https://docs.qpoint.io/guides/qplane-guides/mcp-tools-reference.md
 - https://docs.qpoint.io/guides/devtools-guides/devtools-mcp-server.md
 - https://docs.qpoint.io/guides/devtools-guides/traffic-analysis-mcp-server.md
-# Hosted MCP server exposing Qpoint egress/traffic telemetry (connections, requests,
-# traffic, issues, PII) as read/analytics tools over the Qplane data plane.
 tool_groups:
 - group: connections
   tools:
-  - {name: count_connections, description: Total connection count}
-  - {name: list_connections, description: List individual connections}
-  - {name: get_connection, description: Get a specific connection by ID}
-  - {name: histogram_connections, description: Connection counts over time}
-  - {name: connection_frequency, description: Most frequent connection patterns}
-  - {name: connection_endpoints, description: Endpoints by connection count}
-  - {name: connection_attr_vals, description: Distinct values for a field}
-  - {name: connection_tags, description: Available tag keys}
-  - {name: connection_tag_vals, description: Values for a specific tag}
+  - name: count_connections
+    description: Total connection count
+  - name: list_connections
+    description: List individual connections
+  - name: get_connection
+    description: Get a specific connection by ID
+  - name: histogram_connections
+    description: Connection counts over time
+  - name: connection_frequency
+    description: Most frequent connection patterns
+  - name: connection_endpoints
+    description: Endpoints by connection count
+  - name: connection_attr_vals
+    description: Distinct values for a field
+  - name: connection_tags
+    description: Available tag keys
+  - name: connection_tag_vals
+    description: Values for a specific tag
 - group: requests
   tools:
-  - {name: count_requests, description: Total request count}
-  - {name: list_requests, description: List individual requests}
-  - {name: get_request, description: Get a specific request by ID}
-  - {name: histogram_requests, description: Request counts over time}
-  - {name: request_frequency, description: Most frequent request patterns}
-  - {name: request_endpoints, description: Endpoints by request count}
-  - {name: request_attr_vals, description: Distinct values for a field}
-  - {name: request_tags, description: Available tag keys}
-  - {name: request_tag_vals, description: Values for a specific tag}
-  - {name: request_duration_aggregate, description: Avg/min/max duration statistics}
-  - {name: request_duration_line, description: Duration metrics over time}
-  - {name: request_tag_count, description: Count distinct tag value occurrences}
-  - {name: request_tag_line, description: Tag value trends over time}
+  - name: count_requests
+    description: Total request count
+  - name: list_requests
+    description: List individual requests
+  - name: get_request
+    description: Get a specific request by ID
+  - name: histogram_requests
+    description: Request counts over time
+  - name: request_frequency
+    description: Most frequent request patterns
+  - name: request_endpoints
+    description: Endpoints by request count
+  - name: request_attr_vals
+    description: Distinct values for a field
+  - name: request_tags
+    description: Available tag keys
+  - name: request_tag_vals
+    description: Values for a specific tag
+  - name: request_duration_aggregate
+    description: Avg/min/max duration statistics
+  - name: request_duration_line
+    description: Duration metrics over time
+  - name: request_tag_count
+    description: Count distinct tag value occurrences
+  - name: request_tag_line
+    description: Tag value trends over time
 - group: issues
   tools:
-  - {name: count_issues, description: Total issue count}
-  - {name: list_issues, description: List individual issues}
-  - {name: histogram_issues, description: Issue counts over time}
-  - {name: issue_frequency, description: Most frequent issue patterns}
-  - {name: issue_endpoints, description: Endpoints by issue count}
-  - {name: issue_errors, description: Error breakdown for issues}
-  - {name: issue_attr_vals, description: Distinct values for a field}
+  - name: count_issues
+    description: Total issue count
+  - name: list_issues
+    description: List individual issues
+  - name: histogram_issues
+    description: Issue counts over time
+  - name: issue_frequency
+    description: Most frequent issue patterns
+  - name: issue_endpoints
+    description: Endpoints by issue count
+  - name: issue_errors
+    description: Error breakdown for issues
+  - name: issue_attr_vals
+    description: Distinct values for a field
 - group: pii
   tools:
-  - {name: count_pii, description: Total PII detection count}
-  - {name: pii_summary, description: Summary of detected PII}
-  - {name: histogram_pii, description: PII detections over time}
-  - {name: pii_frequency, description: Most frequent PII patterns}
-  - {name: pii_attr_vals, description: Distinct values for a field}
+  - name: count_pii
+    description: Total PII detection count
+  - name: pii_summary
+    description: Summary of detected PII
+  - name: histogram_pii
+    description: PII detections over time
+  - name: pii_frequency
+    description: Most frequent PII patterns
+  - name: pii_attr_vals
+    description: Distinct values for a field
 - group: traffic
-  note: Documentation references ~26 traffic tools covering counts, time-series, and geographic breakdowns (not fully enumerated in the public reference).
+  note: Documentation references ~26 traffic tools covering counts, time-series, and geographic breakdowns
+    (not fully enumerated in the public reference).
+deployment:
+  mode: remote
+  endpoint: https://pulse.qpoint.io/mcp/v1
+  verified: probed
+  probe: wall
+  checked: '2026-08-12'
+  source: catalog MCP census
