@@ -1,0 +1,31 @@
+# Front Door AI Index — qpoint — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: qpoint
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.qpoint.io
+  final_host: www.qpoint.io
+  ownership: own
+  owner: qpoint
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 22
+  host_score: 22
+  density: 16.64
+  words: 1322
+  tiers:
+    agentic: 12
+    core: 9
+    model: 1
+  ambiguous: 58
+  top_terms:
+    agent: 58
+    AI: 8
+    AI agent: 7
+    MCP: 4
+    Anthropic: 1
+    LLMs: 1
+    prompts: 1
